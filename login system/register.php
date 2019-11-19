@@ -2,6 +2,14 @@
 ob_start();
 session_start(); // start a new session or continues the previous
 
+if(isset($_SESSION["user"])){
+  header("Location: home.php");
+}
+if(isset($_SESSION["admin"])){
+  header("Location: adminpanel.php");
+}
+
+
 include_once 'dbconnect.php'; #require_once 'filename'; 
 $error = false;
 if ( isset($_POST['btn-signup']) ) {

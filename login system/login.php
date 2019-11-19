@@ -4,9 +4,11 @@ session_start();
 require_once 'dbconnect.php';
 
 // it will never let you open index(login) page if session is set
-if ( isset($_SESSION['user' ])!="" ) {
- header("Location: home.php");
- exit;
+if(isset($_SESSION["user"])){
+  header("Location: home.php");
+}
+if(isset($_SESSION["admin"])){
+  header("Location: adminpanel.php");
 }
 
 $error = false;
